@@ -1,0 +1,8 @@
+[flake8]
+max-line-length = 99
+max-complexity = 10
+ignore =
+    # Newline before binary operator
+    W503
+    # Whitespace before ':' in slice
+    E203
