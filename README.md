@@ -58,6 +58,8 @@ that days module, with the path to that days input as the argument.
 
 To run the test code, run `poetry run pytest`.
 
+To run mypy static type checking, run `poetry run mypy`.
+
 ## Installation
 
 Requirements:
@@ -65,4 +67,7 @@ Requirements:
 * Python 3.10
 * Poetry
 
-Install the project requirements with `poetry install`.
+Install the project:
+
+* Install packages requirements with `poetry install`.
+* Install pre-commit linters with `pre-commit install`.

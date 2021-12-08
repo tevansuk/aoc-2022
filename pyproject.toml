@@ -11,6 +11,7 @@ requests = "*"
 num2words = "*"
 pytest = "^6"
 pytest-xdist = "*"
+mypy = "*"
 
 [tool.poetry.scripts]
 day = "aoc.day:main"
