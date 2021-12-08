@@ -35,19 +35,28 @@ def make_my_day():
     pyfile = root / "aoc" / f"{dayw}.py"
     if not pyfile.exists():
         pyfile.write_text(
-            """from dataclasses import dataclass
-from pathlib import Path
+            """from pathlib import Path
+
+Data = list[str]
 
 
-def main(datafile: Path):
+def main(datafile: Path) -> None:
     data = parse_data(datafile)
-    print(f"Q1: {{data}}")
-    print(f"Q2: {{data}}")
+    print(f"Q1: {q1(data) = }")
+    print(f"Q2: {q2(data) = }")
 
 
-def parse_data(datafile: Path):
+def parse_data(datafile: Path) -> Data:
     with datafile.open() as fp:
         return [line for line in fp.readlines()]
+
+
+def q1(data: Data) -> int:
+    return 0
+
+
+def q2(data: Data) -> int:
+    return 0
 """
         )
     testfile = root / "tests" / f"test_{dayw}.py"
@@ -57,16 +66,24 @@ def parse_data(datafile: Path):
 
 import pytest
 
-from aoc.{dayw} import *
+from aoc.{dayw} import Data, parse_data, q1, q2
 
 
 @pytest.fixture
-def data():
+def data() -> Data:
     return parse_data(Path(__file__).parent / "{dayw}.txt")
 
 
-def test_parse_data(data):
-    assert len(data) == 0
+def test_parse_data(data: Data) -> None:
+    assert len(data) == 10
+
+
+def test_q1(data: Data) -> None:
+    assert q1(data) == 0
+
+
+def test_q2(data: Data) -> None:
+    assert q2(data) == 0
 """
         )
     testdata = root / "tests" / f"{dayw}.txt"
