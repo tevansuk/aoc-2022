@@ -13,8 +13,9 @@ def main():
         sys.exit(-1)
     day = int(sys.argv[1])
     print(f"Yo its day {day}")
-    module_name = f"aoc.{num2words(day)}"
-    input_file = Path(__file__).parent.parent / "resources" / f"{num2words(day)}.txt"
+    dayw = num2words(day).replace("-", "_")
+    module_name = f"aoc.{dayw}"
+    input_file = Path(__file__).parent.parent / "resources" / f"{dayw}.txt"
     try:
         mod = importlib.import_module(module_name)
         func = getattr(mod, "main")
@@ -29,7 +30,7 @@ def make_my_day():
     if len(sys.argv) != 2:
         print("Usage: poetry mkday [N]")
         sys.exit(-1)
-    dayw = num2words(int(sys.argv[1]))
+    dayw = num2words(int(sys.argv[1])).replace("-", "_")
     root = Path(__file__).parent.parent
     pyfile = root / "aoc" / f"{dayw}.py"
     if not pyfile.exists():
