@@ -1,29 +1,29 @@
 default_language_version:
-  python: python3.10
+  python: python3.9
 repos:
-  - repo: https://github.com/pycqa/isort
-    rev: 5.6.4
-    hooks:
-      - id: isort
-        additional_dependencies: ["toml"]
-  - repo: https://github.com/pycqa/flake8
-    rev: '3.9.2'
-    hooks:
-      - id: flake8
-  - repo: https://github.com/ambv/black
-    rev: 21.11b1
-    hooks:
-      - id: black
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
-    hooks:
-      - id: trailing-whitespace
-      - id: check-ast
-      - id: check-merge-conflict
-      - id: check-json
-      - id: check-xml
-      - id: check-yaml
-      - id: check-toml
-      - id: mixed-line-ending
-        args: ['--fix=lf']
-      - id: end-of-file-fixer
+- repo: https://github.com/ambv/black
+  rev: 22.10.0
+  hooks:
+  - id: black
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.3.0
+  hooks:
+  - id: check-ast
+  - id: trailing-whitespace
+  - id: check-merge-conflict
+  - id: check-json
+    exclude: ^(.devcontainer|.vscode)/.*\.json$
+  - id: check-xml
+  - id: check-yaml
+  - id: check-toml
+  - id: mixed-line-ending
+    args: ['--fix=lf']
+- repo: https://github.com/pycqa/flake8
+  rev: 5.0.4
+  hooks:
+  - id: flake8
+- repo: https://github.com/pycqa/isort
+  rev: 5.10.1
+  hooks:
+  - id: isort
+    additional_dependencies: ["toml"]
