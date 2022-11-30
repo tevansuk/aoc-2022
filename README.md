@@ -1,8 +1,8 @@
-# 2021 Advent of Code Python template
+# 2022 Advent of Code Python template
 
 This is a small python project to automate setting up each days challenges.
 
-It also contains my solutions for the 2021 challenge on the branch `tom`
+It also contains my solutions for the 2022 challenge on the branch `tom`
 
 ## Creating stubs for a day
 
